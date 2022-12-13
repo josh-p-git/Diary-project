@@ -83,7 +83,6 @@ task3 = Todo.new("wash the log")
 journal.give_up!
 journal.complete # => [task1, task2, task3]
 
-
 ```
 
 ## 4. Create Examples as Unit Tests
