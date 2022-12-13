@@ -84,11 +84,35 @@ journal.give_up!
 journal.complete # => [task1, task2, task3]
 
 
-
 ```
 
 ## 4. Create Examples as Unit Tests
 
+```ruby
+# TODO
+
+# throw an error if todo is not initalised with a string
+Todo.new({"key": 23}) # => error "Please provide a string value"
+
+# mark a todo as done
+todo = Todo.new("Go for a run")
+todo.mark_done!
+todo.done? # => true
+
+# DiaryEntry
+
+# throw an error if todo is not initalised with a string
+DiaryEntry.new({"key": 23}) # => error "Please provide a string value"
+
+# returns word count of diary entry
+entry1 = DiaryEntry.new("There are five words here")
+entry1.num_words # => 5
+
+# intializes with a task
+entry = DiaryEntry.new("This is a new entry")
+entry.contents # => "This is a new entry"
+
+```
 
 ## 5. Implement the Behaviour
 
