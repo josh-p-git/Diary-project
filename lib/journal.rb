@@ -3,6 +3,7 @@ class Journal
   def initialize
     @entries = []
     @tasks = []
+  
   end
 
   def add_entry(entry)
@@ -21,16 +22,6 @@ class Journal
     @entries.select do |entry|
       entry.num_words <= words
     end
-  end
-
-  def find_phone_numbers
-    # returns an array of phone numbers
-    @entries.select do |entry|
-      entry.contents 
-  end
-
-  def check_phone_number(string)
-    # if string is a uk number, return true else return false
   end
 
   def add_task(task)
@@ -55,4 +46,13 @@ class Journal
     end
   end
 
+  def find_phone_numbers
+    @entries.flat_map do |entry|
+      extract_numbers_from_entry(entry)
+    end.uniq
+  end
+
+  def extract_numbers_from_entry(entry)
+    return entry.contents.scan(/07[0-9]{9}/)
+  end
 end

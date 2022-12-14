@@ -2,6 +2,7 @@ class DiaryEntry
   def initialize(contents)
     raise "Please provide a string value" if contents.class != String
     @contents = contents
+    @numbers = []
   end
 
   def contents
